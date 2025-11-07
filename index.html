@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hello World — Cakes</title>
+    <style>
+        :root{
+            --bg1:#fff7f3;
+            --bg2:#fff3e6;
+            --accent:#ff6b81;
+            --muted:#7b7b8a;
+            --card:#ffffff;
+            --glass: rgba(255,255,255,0.6);
+            --shadow: 0 6px 18px rgba(16,24,40,0.08);
+            --radius:16px;
+        }
+
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: radial-gradient(1000px 400px at 10% 10%, rgba(255,192,203,0.12), transparent),
+                                    linear-gradient(160deg,var(--bg1),var(--bg2));
+            color:#111827;
+            -webkit-font-smoothing:antialiased;
+            line-height:1.4;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:48px 24px;
+        }
+
+        .wrap{
+            width:100%;
+            max-width:1100px;
+        }
+
+        header.hero{
+            display:flex;
+            align-items:center;
+            gap:28px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.7), var(--glass));
+            border-radius:var(--radius);
+            padding:36px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(6px);
+            margin-bottom:28px;
+        }
+
+        .hero-text{
+            flex:1;
+        }
+
+        h1{
+            margin:0 0 8px 0;
+            font-size:clamp(28px,4.2vw,44px);
+            letter-spacing:-0.02em;
+            color:#111827;
+        }
+
+        p.lead{
+            margin:0;
+            color:var(--muted);
+            font-size:16px;
+        }
+
+        .hero-visual{
+            width:160px;
+            height:160px;
+            display:grid;
+            place-items:center;
+            background: linear-gradient(135deg, rgba(255,107,129,0.12), rgba(255,200,120,0.12));
+            border-radius:12px;
+            flex-shrink:0;
+        }
+
+        /* Cards grid */
+        .grid{
+            display:grid;
+            grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+            gap:18px;
+        }
+
+        .card{
+            background:var(--card);
+            border-radius:14px;
+            padding:18px;
+            box-shadow: var(--shadow);
+            transition:transform .28s ease, box-shadow .28s ease;
+            display:flex;
+            gap:14px;
+            align-items:center;
+        }
+        .card:hover{ transform:translateY(-6px); box-shadow: 0 18px 40px rgba(16,24,40,0.12); }
+
+        .cake-art{
+            width:84px;
+            height:84px;
+            flex-shrink:0;
+            display:grid;
+            place-items:center;
+            border-radius:10px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+            box-shadow: inset 0 -6px 12px rgba(0,0,0,0.02);
+        }
+
+        .card h3{
+            margin:0 0 6px 0;
+            font-size:18px;
+        }
+        .card p{ margin:0; color:var(--muted); font-size:14px; }
+
+        footer{
+            margin-top:20px;
+            text-align:center;
+            color:var(--muted);
+            font-size:13px;
+        }
+
+        /* small screen tweaks */
+        @media (max-width:580px){
+            header.hero{flex-direction:column; text-align:center}
+            .hero-visual{width:120px;height:120px}
+        }
+    </style>
+</head>
+<body>
+    <main class="wrap" role="main">
+        <header class="hero" aria-labelledby="title">
+            <div class="hero-text">
+                <h1 id="title">Hello, world!</h1>
+                <p class="lead">Welcome to a tiny celebration of cake — simple, sweet, and handcrafted with HTML & CSS.</p>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+                <!-- Decorative layered cake SVG -->
+                <svg width="108" height="108" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decorative cake">
+                    <rect rx="10" width="64" height="64" fill="transparent"/>
+                    <g transform="translate(8,10)">
+                        <rect x="0" y="18" width="48" height="18" rx="4" fill="#ffd6e0"/>
+                        <rect x="4" y="6" width="40" height="14" rx="4" fill="#fff1f3"/>
+                        <rect x="6" y="0" width="12" height="6" rx="2" fill="#ffcfdf"/>
+                        <rect x="30" y="0" width="6" height="6" rx="2" fill="#ffcfdf"/>
+                        <!-- candles -->
+                        <rect x="12" y="-4" width="2" height="6" rx="1" fill="#ff6b81"/>
+                        <rect x="20" y="-4" width="2" height="6" rx="1" fill="#ff6b81"/>
+                        <!-- icing -->
+                        <path d="M0 22c6-4 13 4 24 4s18-8 24-4v12H0V22z" fill="#ffb3c6" opacity="0.95"/>
+                        <!-- sprinkles -->
+                        <g fill="#ff6b81">
+                            <rect x="10" y="26" width="2" height="4" rx="1" transform="rotate(20 10 26)"/>
+                            <rect x="22" y="24" width="2" height="4" rx="1" transform="rotate(-25 22 24)"/>
+                            <rect x="36" y="26" width="2" height="4" rx="1" transform="rotate(10 36 26)"/>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </header>
+
+        <section class="grid" aria-label="Cake gallery">
+            <article class="card">
+                <div class="cake-art" role="img" aria-label="Three-layer birthday cake with candle">
+                    <!-- Layered birthday cake -->
+                    <svg width="72" height="72" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="translate(4,6)">
+                            <rect x="6" y="26" width="40" height="12" rx="3" fill="#ffeef4"/>
+                            <rect x="10" y="14" width="32" height="12" rx="3" fill="#fff5f7"/>
+                            <rect x="14" y="4" width="24" height="10" rx="3" fill="#ffdbe6"/>
+                            <rect x="26" y="-6" width="2" height="10" rx="1" fill="#ff6b81"/>
+                            <circle cx="27" cy="-8" r="1.4" fill="#ffc857"/>
+                        </g>
+                    </svg>
+                </div>
+                <div>
+                    <h3>Classic Layer Cake</h3>
+                    <p>Soft sponge, silky buttercream, and a candle for wishes — the classic birthday favorite.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="cake-art" role="img" aria-label="Cupcake with frosting">
+                    <!-- Cupcake -->
+                    <svg width="72" height="72" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="translate(8,6)">
+                            <rect x="6" y="28" width="28" height="10" rx="3" fill="#ffd6b3"/>
+                            <path d="M2 26c2-8 12-12 20-10 6 1.6 12 6 15 10H2z" fill="#fff0f6"/>
+                            <circle cx="12" cy="18" r="1.6" fill="#ff6b81"/>
+                            <circle cx="20" cy="16" r="1.6" fill="#ff6b81"/>
+                            <circle cx="26" cy="20" r="1.6" fill="#ff6b81"/>
+                        </g>
+                    </svg>
+                </div>
+                <div>
+                    <h3>Sweet Cupcake</h3>
+                    <p>Portable joy: a single-serve cake with swirls of frosting and playful sprinkles.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="cake-art" role="img" aria-label="Slice of chocolate cake">
+                    <!-- Slice of cake -->
+                    <svg width="72" height="72" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="translate(4,8)">
+                            <path d="M40 6L8 30v8h36z" fill="#6b4226"/>
+                            <path d="M8 30l32-24-8 28z" fill="#8b5a3c" opacity="0.95"/>
+                            <path d="M12 34h28v4H12z" fill="#3b2213"/>
+                            <circle cx="34" cy="8" r="3" fill="#ff6b81"/>
+                        </g>
+                    </svg>
+                </div>
+                <div>
+                    <h3>Chocolate Slice</h3>
+                    <p>Decadent and rich, for moments when only a fudgy slice will do.</p>
+                </div>
+            </article>
+        </section>
+
+        <footer>
+            <p>Made with only HTML & CSS • Enjoy a slice of code and cake.</p>
+        </footer>
+    </main>
+</body>
+</html>
